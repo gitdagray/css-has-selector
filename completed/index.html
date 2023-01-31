@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS :has</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="one grid">
+        <article>
+            <h2>My First Post</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+            <p>
+                Aliquid perferendis nihil consequatur eius atque
+                officiis maxime esse.
+            </p>
+        </article>
+        <article>
+            <h2>My 2nd Post</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+            <p>
+                Aliquid perferendis nihil consequatur eius atque
+                officiis <span class="bold">maxime</span> esse.
+            </p>
+        </article>
+        <article>
+            <h2>My 3rd Post</h2>
+            <p>
+                <span class="italic">Lorem ipsum</span> dolor sit amet consectetur adipisicing elit.
+            </p>
+            <p>
+                Aliquid perferendis nihil consequatur eius atque
+                officiis maxime esse.
+            </p>
+            <button class="button">Buy Now</button>
+        </article>
+    </section>
+
+    <section class="two">
+        <nav>
+            <ul class="nav__menu">
+                <li class="nav__item">
+                    Locations
+                    <ul class="nav__submenu">
+                        <li class="nav__item">Duluth</li>
+                        <li class="nav__item">Portland</li>
+                        <li class="nav__item">Austin</li>
+                    </ul>
+                </li>
+                <li class="nav__item">
+                    Employees
+                    <ul class="nav__submenu">
+                        <li class="nav__item">Valerie</li>
+                        <li class="nav__item">John</li>
+                        <li class="nav__item">Macon</li>
+                    </ul>
+                </li>
+                <li class="nav__item">About</li>
+            </ul>
+        </nav>
+    </section>
+
+    <section class="three">
+        <div>
+            <label>Toggle Dark Mode:</label>
+            <input type="checkbox" class="lightswitch" />
+        </div>
+        <div>
+            <label>Toggle Bubbles:</label>
+            <input type="checkbox" class="bubbleswitch" />
+        </div>
+        <div class="awesome">
+            <label>:has() is Awesome!<br>Agree? </label>
+            <input type="checkbox" class="awesome__terms" />
+        </div>
+    </section>
+
+    <section class="four">
+        <div>
+            <label for="name">Name:</label>
+            <br>
+            <input class="name" type="text" name="name" id="name" required pattern="^[A-Z][A-z]{2,}">
+        </div>
+    </section>
+
+</body>
+
+</html>

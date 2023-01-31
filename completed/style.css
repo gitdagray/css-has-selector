@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --BGCOLOR: lightgray;
+    --COLOR: #000;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: lightslategray;
+}
+
+section {
+    min-height: 100vh;
+    padding: 0.5rem;
+}
+
+button, input { 
+    font: inherit;
+    border-radius: 10px;
+}
+
+button {
+    padding: 1em;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+}
+
+article {
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: wheat;
+}
+
+article p {
+    margin-bottom: 1rem;
+}
+
+/* Example 1 */
+/* Previously we could only select forwards... */
+/* article + article {
+    background-color: aliceblue;
+}
+
+article:has(+ article) {
+    background-color: coral;
+} */
+
+/* Example 2 */
+/* We can do more than just select the parent */
+article:has(span) .bold {
+    background-color: rgba(255, 255, 0, 0.615);
+}
+
+article:has(span) .italic {
+    text-decoration: underline;
+}
+
+/* Example 3 */ 
+/* not has (aka "does not have") */
+
+article:not(:has(span)) {
+    background-color: lightgray;
+}
+
+/* Example 4 */
+/* OR example */
+
+article:has(input, .button) {
+    background-color: rebeccapurple;
+}
+
+/* Example 5 */
+/* AND example */ 
+
+article:has(p):has(.button) {
+    background-color:lightsalmon;
+}
+
+/* Example 6 */
+/* more complex example - specific and looks back */
+
+article:has(p):has(.button) p:has(+ .button) {
+    margin-bottom: 2rem;
+}
+
+/* =========================== */
+
+.two {
+    background-color: var(--BGCOLOR);
+    color: var(--COLOR);
+    font-size: 1.5rem;
+}
+
+.nav__menu {
+    max-width: 800px;
+    margin: 0 auto;
+    list-style-type: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.nav__menu > .nav__item:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.nav__menu > .nav__item:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.nav__item {
+    padding: 0.5em 1em;
+    background-color: rebeccapurple;
+    color: #fff;
+    flex-grow: 1;
+    display: grid;
+    place-content: center;
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.nav__submenu {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+}
+
+.nav__item:hover  {
+    background-color: rgb(123, 63, 182);
+}
+
+.nav__item:hover .nav__submenu {
+    display: block;
+}
+
+.nav__submenu > .nav__item {
+    border-top: 1px solid #fff;
+}
+
+/* Practical Example */
+/* Create fewer modifier classes */
+
+.nav__item:has(.nav__submenu)::after {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 400;
+    content: '\f150';
+    margin-left: 1rem;
+}
+
+/* =========================== */
+
+.three, .four {
+    background-color: var(--BGCOLOR);
+    color: var(--COLOR);
+    display: grid;
+    place-content: center;
+    font-size: 2rem;
+    position: relative;
+}
+
+input[type="checkbox"] {
+    width: 2rem;
+    height: 2rem;
+}
+
+.awesome {
+    display: block;
+    width: 350px;
+    height: 150px;
+    border: 5px double #000;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: rgb(255, 255, 98);
+    position: absolute;
+    top: calc(50% - 75px);
+    left: calc(50% - 175px);
+}
+
+/* Practical Example(s) - eliminate some JS! */
+
+/* Modal & agree to terms */
+
+.awesome:has(.awesome__terms:checked) {
+    display: none;
+}
+
+/* light & dark mode */
+
+.three:has(.lightswitch:checked) {
+    background-color: var(--COLOR);
+    color: var(--BGCOLOR);
+}
+
+/* Bubbles! Change any style you want! */
+
+.three:has(.bubbleswitch:checked) {
+    background: repeat-y right center url("../img/bubbles.png"), no-repeat linear-gradient(to left, steelblue, #fff);
+    background-size: 20%, auto;
+}
+
+/* =========================== */
+
+label:has(~ .name:valid)::after {
+    content: '✔';
+    color: limegreen;
+    margin-left: 1rem;
+    font-size: 3rem;
+}
+
+/* 
+label:has(~ .name:invalid)::after {
+    content: '❌';
+    color: red;
+    margin-left: 1rem;
+    font-size: 3rem;
+} */
+
+
+
+
+
+
+
+
